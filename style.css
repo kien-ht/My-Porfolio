@@ -1,0 +1,902 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400;1,700&family=Open+Sans&family=Roboto:wght@900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    font-size: 10px;
+}
+
+/* scrollbar: start */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+/* scrollbar: end */
+
+#container {
+    position: relative;
+    width: 100vw;
+    background-color: rgb(228, 248, 161);
+}
+
+#head-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#language {
+    z-index: 5;
+    position: absolute;
+    margin: 2.5rem 0 0 11%;
+}
+
+#language > input {
+    display: none;
+}
+  
+#toggle { 
+    position: relative;
+    display: block;
+    left: 0;
+    width: 13rem;
+    height: 6.5rem;
+    background-color: rgba(156, 164, 169, 0.5);
+    border-radius: 6.5rem;
+    cursor: pointer;
+    transform: scale(0.4);
+}
+
+#toggle:before {
+    content: 'EN';
+    position: absolute;
+    top: 0;
+    left: -8rem;
+    font-size: 5rem;
+    color: rgb(209, 209, 209);
+}
+#toggle:after {
+    content: 'VI';
+    position: absolute;
+    top: 0;
+    right: -6rem;
+    font-size: 5rem;
+    color: rgb(209, 209, 209);
+}
+
+#circle {
+    width: 6rem;
+    height: 5.5rem;
+    background-image: url(./img/language-icon.png);
+    background-size: 13rem;
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-radius: 5.5rem;
+    border: 4px solid white;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+}
+
+#checkbox:checked + #toggle #circle {
+    left: 6.5rem;
+    background-position: -6.5rem 0;
+}
+
+#navbar {
+    position: relative;
+    width: 100%;
+    padding: 3rem 12% 0 0;
+    z-index: 5;
+    color: white;
+}
+
+#navbar-icon {
+    float: right;
+    display: none!important;
+
+}
+
+#navbar-content {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.8rem;
+    width: 60rem;
+    right: 12%;
+    float: right;
+}
+
+#introduction {
+    position: absolute;
+    width: 70%;
+    color: white;
+    top: 26rem;
+    left: 12%;
+    z-index: 5;
+}
+
+#introduction > p {
+    text-align: start;
+}
+
+#introduction > .underline {
+    width: 30rem;
+    margin-left: 0;
+}
+
+#cover-img {
+    position: absolute;
+    background: linear-gradient(0deg,rgba(228, 248, 161,0.9),rgba(228, 248, 161,0.2),rgba(228, 248, 161,0.0)), url(./img/cover.png) center/cover no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    filter: brightness(50%);
+    /* box-shadow: 0px 5px 10px rgb(66, 65, 65); */
+}
+
+.bird {
+    position: absolute;
+    background: url(./img/bird.png) center/cover no-repeat;
+    z-index: 4;
+    filter: brightness(50%);
+    transition: all 1.6s ease-out;
+}
+
+.bird-1 {
+    width: 6.4rem;
+    height: 4rem;
+    left: 15%;
+    top: 10%;
+}
+.bird-2 {
+    width: 9.8rem;
+    height: 5rem;
+    left: 55%;
+    top: 24%;
+}
+.bird-3 {
+    width: 9.3rem;
+    height: 4.4rem;
+    left: 27%;
+    top: 26%;
+}
+.bird-4 {
+    width: 7.2rem;
+    height: 4.3rem;
+    left: 40%;
+    top: 18%;
+}
+.bird-5 {
+    width: 5.8rem;
+    height: 3.1rem;
+    left: 34%;
+    top: 7%;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3rem;
+    color: #112437;
+}
+
+h5 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.text-sm-head {
+    font-size: 2.6rem;
+    color: rgb(209, 209, 209);
+}
+
+.text-sm-head:after {
+    content: '|';
+    animation: fading 1s ease-in-out infinite;
+}
+
+@keyframes fading {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+p {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    font-style: italic;
+    line-height: 3.8rem;
+    color: whitesmoke;
+}
+
+a {
+    font-size: 2rem;
+    color: rgb(209, 209, 209);
+    text-decoration: none!important;
+    padding: 1.2rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    cursor: pointer;
+    transform: translate(0px,-2px);
+    background-color: rgb(163, 191, 70);
+    color: white;
+}
+
+.underline {
+    width: 20rem;
+    height: 0.5rem;
+    margin: 0 auto 3rem auto;
+    border-radius: 1rem;
+    background-color: rgb(255, 123, 0);
+    /* background-color: red; */
+
+}
+
+#about-me-section, #skills-section, #achievement-section, #projects-section, #hireMe-section {
+    position: relative;
+    width: 100%;
+    padding: 12rem 12%;
+}
+
+#about-me-section, #skills-section, #achievement-section, #projects-section {
+    z-index: 1;
+}
+
+#skills-section {
+    background-color: rgb(227, 248, 161);
+}
+
+#about-me-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(231, 255, 152);
+
+}
+
+#about-me-section:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(149, 170, 80, 0.65);
+     /* background-color: rgb(176, 197, 109); */
+    z-index: 1;
+}
+
+#skills-section, #achievement-section, #projects-section, #footer {
+    text-align: center;
+}
+
+#hireMe-section {
+    position: fixed;
+    bottom: 0rem;
+    z-index: 0;
+    margin-bottom: 13rem;
+    /* background-color: rgba(149, 170, 80, 0.65); */
+    background-color: white;
+}
+
+input {
+    /* font-family: 'ganeva', sans-serif; */
+    font-size: 2.4rem;
+    font-style: italic;
+    color: rgb(150, 145, 159);
+    line-height: 5rem;
+    text-decoration: rgb(255, 123, 0) underline dotted;
+    transition: all 0.2s ease-in-out;
+    /* background-color: rgb(176, 197, 109); */
+    border: none;
+    outline: none;
+    overflow: scroll;
+}
+
+input::placeholder {
+    color: rgba(150, 145, 159, 0.5);
+}
+/* 
+input:hover {
+    color: #112437;;
+} */
+
+.send {
+    font-size: 2rem;
+    border: none;
+    width:20rem;
+    margin-top: 2rem;
+    padding: 1.2rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.send:hover {
+    cursor: pointer;
+}
+
+#achievement-section {
+    background-color: rgb(203, 224, 137);
+}
+
+#projects-section {
+    background-color: rgb(227, 248, 161);
+    box-shadow: 0px 5px 10px rgba(60,122,12,0.4);
+}
+
+.transparent {
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.hireMe-form > p {
+    text-align: left;
+    color: rgb(14, 38, 62);
+    letter-spacing: 0.1rem;
+    font-style: normal;
+}
+
+.skills-items, .projects-item {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.projects-item {
+    text-align: start;
+}
+
+.skills-items {
+    text-align: center;
+    font-size: 18px;
+    flex-wrap: wrap;
+}
+
+.skills-icon {
+    flex: 1;
+    margin: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 2rem dotted rgba(255, 123, 0,0.2);
+}
+
+.skills-icon > i {
+    margin: 2.5rem 7rem;
+}
+
+.skills-icon > div {
+    font-family: 'Ganava', sans-serif;
+    font-size: 2.4rem;
+}
+
+.fa-html5 {
+    color: rgb(229, 77, 38);
+}
+.fa-css3-alt {
+    color: rgb(55, 154, 213);
+}
+.fa-js-square {
+    color: rgb(248, 224, 23);
+}
+.fa-bootstrap {
+    color: rgb(87, 60, 126);
+}
+.fa-react {
+    color: rgb(98, 218, 251);
+}
+.fa-node {
+    color: rgb(144, 197, 63);
+}
+.fa-heart {
+    color: red;
+}
+
+#side-container {
+    margin-left: 12%;
+    flex: 1;
+    position: relative;
+    z-index: 999;
+}
+
+#side-container > p {
+    text-shadow: 0 0px 3rem rgba(0,0,0,0.4);
+}
+
+
+#my-avatar {
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex: 1;
+    transition: all 0.3s ease-out;
+
+}
+
+#info-table {
+    margin: 1.5rem 0rem;
+    /* display: flex;
+    justify-content: space-between; */
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 2rem;
+    position: relative;
+    color: #112437;
+}
+
+tr {
+    border-bottom: 2px solid rgba(60,122,12,0.6);
+    transition: all 0.2s ease-in-out;
+}
+
+tr:hover {
+    border-bottom: 2px solid white;
+}
+
+td {
+    vertical-align: top;
+    line-height: 4rem;
+}
+
+.info-column {
+    margin-right: 1rem;
+}
+
+.info-column > p {
+    margin: 1rem 0px;
+}
+
+.about-me-btn {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.about-me-btn > a {
+    background-color: rgba(60,122,12,0.6);
+    color: white;
+    width: 46%;
+}
+
+.about-me-btn > a:hover {
+    cursor: pointer;
+    /* background-color: rgba(60,122,12,1); */
+    background-color: white;
+    color: rgb(65, 65, 65);
+}
+
+#social-media {
+    /* margin-bottom: 40px; */
+}
+
+#social-media > a {
+    display: inline-block;
+    color: rgba(60,122,12,1);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#social-media > a:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: #112437;
+    /* color: rgb(51, 107, 9); */
+    transform: translate(0px,-2px);
+}
+
+.avatar-name {
+    position: absolute;
+    top: 13rem;
+    left: 10%;
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.9;
+    text-align: center;
+    z-index: 999;
+}
+
+.ha-trung {
+    position: relative;
+    font-weight: normal;
+    font-size: 8rem;
+    letter-spacing: -0.2rem;
+    color: rgb(65, 65, 65);
+    transition: all 0.3s ease-out;
+
+}
+
+.kien {
+    position: relative;
+    margin-top: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 9rem;
+    letter-spacing: 0.6rem;
+    color: #112437;
+    transition: all 0.3s ease-out;
+
+}
+
+.kien:after {
+    content: '';
+    position: absolute;
+    width: 16rem;
+    height: 0.6rem;
+    margin: 4rem 0 0 0.5rem;
+    background: #112437;
+}
+
+.web-developer {
+    position: relative;
+    font-size: 1.6rem;
+    letter-spacing: 0.3rem;
+    color: white;
+    margin-top: 2rem;
+    transition: all 0.3s ease-out;
+
+}
+
+.web-developer:before {
+    content: '';
+    position: absolute;
+    left: 4rem;
+    width: 6rem;
+    height: 0.3rem;
+    margin-top: 0.5rem;
+    background: white;
+
+}
+
+.skills-items {
+    margin-top: 4rem;
+}
+
+.skills-items > p {
+    background-color:rgb(181, 204, 106);
+    width: 22rem;
+    height: 22rem;
+    border-radius: 50%;
+    padding: 0px 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color:  white;
+    box-shadow: 5px 5px 10px  rgba(60,122,12,0.2);
+}
+
+.achievement-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.achievement-item > p {
+    background-color: rgb(163, 191, 70);
+    font-family: 'ganeva', sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    min-height: 17rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    flex: 1;
+    border-bottom: 6px solid rgba(60,122,12,1);
+    box-shadow: 5px 5px 10px rgba(60,122,12,0.3);
+}
+
+/* .projects-item > div{
+    position: relative;
+    width: 50rem;
+    height: 26rem;
+    margin: 2rem;
+    background-color:rgb(181, 204, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(60,122,12,0.5);
+} */
+
+/* .projects-item > div > p {
+    position: relative;
+    text-align: start;
+    top: 15rem;
+} */
+
+/* .projects-item > div > a {
+    color: white;
+    background-color: rgba(163, 191, 70, 0.5);
+}
+
+.projects-item > div > a:hover {
+    background-color: rgb(163, 191, 70);
+} */
+
+#footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 12% 5rem 12%;
+    background-color: #112437;
+    z-index: 0;
+    bottom: 0;
+}
+
+#footer > p {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+#btn-backToTop {
+    background-color: #112437;
+    color: white;
+    /* transition: all 0.5s ease-in-out; */
+    animation: jumping 0.8s ease-in-out infinite;
+}
+
+#footer > a:hover {
+    background-color: #112437;
+}
+#btn-backToTop:hover {
+    animation: jumping 0.5s ease-in-out infinite;
+ }
+
+@keyframes jumping {
+    0% { transform: translateY(1rem);}
+    50% { transform: translateY(0rem);}
+    100% { transform: translateY(1rem);}
+}
+
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px rgba(60,122,12,0.5);
+    width: 47%;
+}
+
+.card-header {
+    color: #112437;
+    padding: 1.5rem;
+    text-transform: uppercase;
+}
+
+.card-body {
+    padding: 2rem 4rem;
+}
+
+.card-body > p {
+    color: #112437;
+    font-size: 1.8rem;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
+    padding: 0rem 4rem 4rem 4rem;
+}
+
+.card-footer > a, .send {
+    display: block;
+    color: white;
+    background-color: rgb(163, 191, 70);
+    text-align: center;
+}
+
+.card-footer > a:hover, .send:hover {
+    border: 1px solid rgb(163, 191, 70);
+    background-color: white;
+    color: #112437;
+}
+
+.card-title {
+    font-style: normal;
+}
+
+.card-explain:before {
+    content: '\f0ae';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-style: normal;
+    margin-right: 1rem;
+    color: rgb(255, 123, 0);
+}
+
+.trophy {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+ul li {
+    font-size: 1.6rem;
+}
+
+ul li:before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 1rem;
+    color: rgb(255, 123, 0);
+}
+
+.trophy:before {
+    content: '\f091';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: rgb(255, 123, 0);
+    margin-right: 1rem;
+    font-style: normal;
+}
+
+@media only screen and (max-width: 992px) {
+    #about-me-section {
+      flex-direction: column;
+      padding: 5rem 6%;
+    }
+
+    #side-container {
+        margin-left: 0;
+        margin-top: 5rem;
+    }
+
+    #navbar-icon {
+        padding: 1rem;
+        border-radius: 2px;
+        display: inline-block!important;
+    }
+
+    #navbar-icon:hover {
+        background-color: rgba(128, 128, 128, 0.4);
+    }
+
+    #navbar:hover #navbar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 1rem;
+        
+    }
+
+    #navbar-content {
+        display: none;
+    }
+
+    #navbar-content > a {
+        background-color: rgba(128, 128, 128, 0.4);
+        width: 18rem;
+        text-align: end;
+        border-radius: 0rem;
+    }
+
+    #navbar-content > a:hover {
+        background-color: rgb(163, 191, 70);
+    }
+
+    .bird {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .web-developer:before, .kien:after {
+        display: none;
+    }
+    
+    .avatar-name {
+        margin: auto;
+        width: 100%;
+        left: 0;
+        top: 9rem;
+    }
+
+    .skills-items {
+        font-size: 10px;
+        margin: 0.5rem 1rem;
+    }
+
+    #about-me-section, #skills-section, #achievement-section, #projects-section, #hireMe-section {
+        padding: 5rem 6%;
+    }
+
+    .projects-item {
+        flex-direction: column;
+    }
+
+    .projects-item > div {
+        margin: 2rem auto;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 567px) {
+    #footer {
+        flex-direction: column;
+    }
+
+    #footer > p {
+        margin-top: 0;
+    }
+
+    #hireMe-section {
+        margin-bottom: 21rem;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .hireMe-form p, input {
+        line-height: 3rem;
+    }
+
+    #introduction {
+        top: 18rem;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+}
+@media only screen and (max-width: 320px) {
+    #hireMe-section {
+        margin-bottom: 18rem;
+        padding-bottom: 3rem;
+    }
+
+    #footer {
+        padding-bottom: 2rem;
+    }
+
+    .hireMe-form p, input {
+        line-height: 3rem;
+    }
+
+    #introduction > .underline {
+        width: 25rem;
+    }
+}
